@@ -26,7 +26,7 @@ export function AuroraBackground({
         <div
           className={cn(
             `
-            absolute inset-0 opacity-40 md:opacity-50
+            absolute inset-0 opacity-60 md:opacity-80
             [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)]
             [--dark-gradient:repeating-linear-gradient(100deg,var(--black)_0%,var(--black)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--black)_16%)]
             [--aurora:repeating-linear-gradient(100deg,var(--blue-500)_10%,var(--indigo-300)_18%,var(--violet-300)_26%,var(--sky-300)_34%,var(--blue-400)_42%)]
@@ -34,7 +34,7 @@ export function AuroraBackground({
             dark:[background-image:var(--dark-gradient),var(--aurora)]
             [background-size:300%,_200%]
             [background-position:50%_50%,50%_50%]
-            filter blur-[12px] md:blur-[16px] invert dark:invert-0
+            filter blur-[8px] md:blur-[10px] invert dark:invert-0
             after:content-[""] after:absolute after:inset-0
             after:[background-image:var(--white-gradient),var(--aurora)]
             after:dark:[background-image:var(--dark-gradient),var(--aurora)]
@@ -43,10 +43,10 @@ export function AuroraBackground({
             after:mix-blend-difference
             `,
             showRadialGradient &&
-              "[mask-image:radial-gradient(ellipse_at_100%_0%,black_12%,transparent_72%)]"
+              "[mask-image:radial-gradient(ellipse_at_100%_0%,black_20%,transparent_80%)]"
           )}
         />
-        <div className="absolute inset-0 bg-white/30 dark:bg-black/20" />
+        <div className="absolute inset-0 bg-white/10 dark:bg-black/10" />
       </div>
 
       <div className="relative z-10">{children}</div>

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SectionCard } from "@/components/common/section-card";
 import { MbtiField } from "./mbti-field";
+import { BirthDateField } from "./birth-date-field";
 import type { MBTIType } from "@/lib/saju/types";
 import type { ReportCreationResponse } from "@/lib/utils/errors";
 import { PrimaryButton } from "@/components/ui/primary-button";
@@ -21,7 +22,9 @@ export function ReportForm() {
 
   const [name, setName] = useState("");
   const [sexForCalculation, setSexForCalculation] = useState<string>("");
-  const [birthDate, setBirthDate] = useState("");
+  const [birthYear, setBirthYear] = useState("");
+  const [birthMonth, setBirthMonth] = useState("");
+  const [birthDay, setBirthDay] = useState("");
   const [birthHour, setBirthHour] = useState("");
   const [birthMinute, setBirthMinute] = useState("");
   const [mbti, setMbti] = useState("");
@@ -33,6 +36,11 @@ export function ReportForm() {
     setServerError(null);
 
     try {
+      const birthDate =
+        birthYear && birthMonth && birthDay
+          ? `${birthYear}-${birthMonth.padStart(2, "0")}-${birthDay.padStart(2, "0")}`
+          : "";
+
       const body = {
         name,
         sexForCalculation,
@@ -129,24 +137,16 @@ export function ReportForm() {
           </div>
 
           {/* Birth Date */}
-          <div className="space-y-2">
-            <Label htmlFor="birthDate">생년월일</Label>
-            <Input
-              id="birthDate"
-              type="date"
-              value={birthDate}
-              onChange={(e) => setBirthDate(e.target.value)}
-              className="rounded-xl"
-              max={new Date().toISOString().split("T")[0]}
-              min="1900-01-01"
-              disabled={isSubmitting}
-            />
-            {fieldErrors.birthDate && (
-              <p className="text-xs text-destructive" role="alert">
-                {fieldErrors.birthDate}
-              </p>
-            )}
-          </div>
+          <BirthDateField
+            birthYear={birthYear}
+            birthMonth={birthMonth}
+            birthDay={birthDay}
+            onYearChange={setBirthYear}
+            onMonthChange={setBirthMonth}
+            onDayChange={setBirthDay}
+            disabled={isSubmitting}
+            error={fieldErrors.birthDate}
+          />
 
           {/* Birth Time */}
           <div className="space-y-2">
