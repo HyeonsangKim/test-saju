@@ -21,7 +21,7 @@ export function EmptyState({
       </p>
       <Link
         href="/report/new"
-        className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity mt-4"
+        className="inline-flex items-center justify-center gap-2 h-11 md:h-12 rounded-full px-6 md:px-8 font-medium text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity mt-4"
       >
         사주 결과 보기
       </Link>

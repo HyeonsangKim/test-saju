@@ -8,7 +8,7 @@ import { SectionCard } from "@/components/common/section-card";
 import { MbtiField } from "./mbti-field";
 import type { MBTIType } from "@/lib/saju/types";
 import type { ReportCreationResponse } from "@/lib/utils/errors";
-import { Loader2 } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/primary-button";
 import { cn } from "@/lib/utils";
 
 type FormState = "idle" | "submitting" | "error";
@@ -207,20 +207,13 @@ export function ReportForm() {
         </div>
       )}
 
-      <button
+      <PrimaryButton
         type="submit"
-        disabled={isSubmitting}
-        className="w-full h-12 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+        loading={isSubmitting}
+        className="w-full"
       >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="w-4 h-4 animate-spin" />
-            생성 중...
-          </>
-        ) : (
-          "사주 결과 보기"
-        )}
-      </button>
+        {isSubmitting ? "생성 중..." : "사주 결과 보기"}
+      </PrimaryButton>
 
       <p className="text-xs text-center text-muted-foreground px-2">
         결과 URL을 아는 사람은 결과를 열람할 수 있으며, 결과는 30일 후 자동

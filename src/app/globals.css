@@ -47,6 +47,7 @@
 }
 
 :root {
+  /* Design tokens (PRD 12.1) */
   --background: #F8FAFC;
   --foreground: #0F172A;
   --card: #FFFFFF;
@@ -69,6 +70,16 @@
   --success: #16A34A;
   --warning: #D97706;
   --radius: 1rem;
+
+  /* Aurora gradient color variables (PRD 17.2) */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+  --blue-400: #60A5FA;
+  --blue-500: #3B82F6;
+  --indigo-300: #A5B4FC;
+  --violet-300: #C4B5FD;
+  --sky-300: #7DD3FC;
 }
 
 .dark {
@@ -93,6 +104,15 @@
   --ring: #818CF8;
   --success: #22C55E;
   --warning: #F59E0B;
+
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+  --blue-400: #60A5FA;
+  --blue-500: #3B82F6;
+  --indigo-300: #A5B4FC;
+  --violet-300: #C4B5FD;
+  --sky-300: #7DD3FC;
 }
 
 @layer base {
